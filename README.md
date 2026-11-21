@@ -81,4 +81,4 @@ The source image defaults to `docs/images/hero.png`, and the output to `docs/ima
 
 ## License
 
-No license has been chosen yet.
+MIT. See [LICENSE](LICENSE). The bundled `scripts/vendor` CSS is github-markdown-css (MIT, Sindre Sorhus).

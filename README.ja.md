@@ -81,4 +81,4 @@ uv run --with pillow python scripts/make-banner.py "プロジェクト名" docs/
 
 ## ライセンス
 
-まだ決めていません。
+MIT です。[LICENSE](LICENSE) を見てください。`scripts/vendor` の CSS は github-markdown-css（MIT、Sindre Sorhus）です。
