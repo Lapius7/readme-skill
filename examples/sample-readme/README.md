@@ -1,6 +1,6 @@
 <div align="center">
 
-<sub>sample (fictional project): Tidepool does not exist. This README only shows what readme-creator produces.</sub>
+<sub>sample (fictional project): Tidepool does not exist. This README only shows what readme-skill produces.</sub>
 
 <img alt="Tidepool" src="images/banner.png" width="100%">
 

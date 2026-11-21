@@ -1,6 +1,6 @@
 <div align="center">
 
-<p align="center"><img alt="readme-creator: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
+<p align="center"><img alt="readme-skill: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
 
 <p align="center"><a href="README.md">English</a> | <b>日本語</b></p>
 
@@ -44,7 +44,7 @@ Claude に「READMEを良くして」「バッジとバナーを付けて」と�
 Claude Code がスキルを探すフォルダに置きます。
 
 ```sh
-git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-creator
+git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-skill
 ```
 
 バナーのスクリプトには [uv](https://docs.astral.sh/uv/) が要ります。Pillow は `uv run` が必要なときに取得します。

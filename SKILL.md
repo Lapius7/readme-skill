@@ -1,5 +1,5 @@
 ---
-name: readme-creator
+name: readme-skill
 description: GitHub リポジトリの README を、有名リポジトリのような見た目（中央寄せのバナー、色分けしたバッジ、Alert、折りたたみの表、英日の2言語）に作る・作り直すスキル。「READMEを作って」「READMEを良くして」「READMEをかっこよく」「バッジやバナーを付けて」と頼まれたときに使う。
 ---
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<p align="center"><img alt="readme-creator: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
+<p align="center"><img alt="readme-skill: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
 
 <p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
@@ -44,7 +44,7 @@ Ask Claude for "a better README" or "a README with badges and a banner", and thi
 Put the folder where Claude Code looks for skills.
 
 ```sh
-git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-creator
+git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-skill
 ```
 
 The banner script needs [uv](https://docs.astral.sh/uv/) and Pillow, which `uv run` fetches on demand.

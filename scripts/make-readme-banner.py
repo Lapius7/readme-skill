@@ -1,4 +1,4 @@
-"""readme-creator 自身の README 用バナー docs/images/banner.png を作る。
+"""readme-skill 自身の README 用バナー docs/images/banner.png を作る。
 
 examples/sample-readme の撮影画像（screenshot.png）を、角丸の枠に入れて暗い背景に置く。文字は足さない。
 背景はサンプルのヒーロー画像（hero.png）を暗くぼかしたもの。
