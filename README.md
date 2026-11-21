@@ -1,8 +1,8 @@
 <div align="center">
 
-<p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
-
 <p align="center"><img alt="readme-creator: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
+
+<p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
 <h1 align="center">README Creator SKILL</h1>
 

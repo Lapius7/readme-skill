@@ -1,10 +1,10 @@
 <div align="center">
 
-<p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
-
 <p align="center">
   <img src="docs/images/banner.png" alt="DISPLAY NAME" width="100%">
 </p>
+
+<p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
 <h1 align="center">DISPLAY NAME</h1>
 
