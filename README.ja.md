@@ -11,8 +11,8 @@
 <p align="center">中央寄せのバナー、色分けしたバッジ、GitHub の Alert、折りたたみの表、そろえた英日の2言語版を作ります。見た目より事実を優先します。</p>
 
 <p align="center">
-  <a href="https://github.com/Lapius7/readme-creator/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Lapius7/readme-creator?style=flat-square&color=e3b341&logo=github"></a>
-  <a href="https://github.com/Lapius7/readme-creator/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/Lapius7/readme-creator?style=flat-square&color=3b82f6"></a>
+  <a href="https://github.com/Lapius7/readme-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Lapius7/readme-skill?style=flat-square&color=e3b341&logo=github"></a>
+  <a href="https://github.com/Lapius7/readme-skill/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/Lapius7/readme-skill?style=flat-square&color=3b82f6"></a>
   <a href="https://docs.claude.com/en/docs/claude-code/skills"><img alt="Claude skill" src="https://img.shields.io/badge/Claude-skill-d97757?style=flat-square&logo=anthropic&logoColor=white"></a>
   <a href="https://github.com/python-pillow/Pillow"><img alt="Pillow" src="https://img.shields.io/badge/banner-Pillow-3776ab?style=flat-square&logo=python&logoColor=white"></a>
 </p>
@@ -44,7 +44,7 @@ Claude に「READMEを良くして」「バッジとバナーを付けて」と�
 Claude Code がスキルを探すフォルダに置きます。
 
 ```sh
-git clone https://github.com/Lapius7/readme-creator ~/.claude/skills/readme-creator
+git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-creator
 ```
 
 バナーのスクリプトには [uv](https://docs.astral.sh/uv/) が要ります。Pillow は `uv run` が必要なときに取得します。
