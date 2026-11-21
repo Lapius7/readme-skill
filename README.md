@@ -4,7 +4,7 @@
 
 <p align="center"><img alt="readme-creator: a sample README rendered in GitHub dark theme" src="docs/images/banner.png" width="100%"></p>
 
-<h1 align="center">readme-creator</h1>
+<h1 align="center">README Creator SKILL</h1>
 
 <h3 align="center">A Claude skill that writes READMEs that look like the well-known repositories.</h3>
 

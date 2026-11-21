@@ -3,8 +3,10 @@
 <p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
 <p align="center">
-  <img src="docs/images/banner.png" alt="PROJECT NAME" width="100%">
+  <img src="docs/images/banner.png" alt="DISPLAY NAME" width="100%">
 </p>
+
+<h1 align="center">DISPLAY NAME</h1>
 
 <h3 align="center">ONE-LINE TAGLINE.</h3>
 
