@@ -1,6 +1,6 @@
 <div align="center">
 
-<!-- バナーは任意。指定があるとき、または良く作れそうなときだけ残す。不要なら、このブロックごと消す -->
+<!-- バナーは任意。見栄えよく作れるときと、指定があるときだけ残す。貧弱な画像なら、このブロックごと消す -->
 <p align="center">
   <img src="docs/images/banner.png" alt="DISPLAY NAME" width="100%">
 </p>
