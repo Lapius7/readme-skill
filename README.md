@@ -21,23 +21,26 @@
   <a href="#what-it-does">What it does</a> ·
   <a href="#install">Install</a> ·
   <a href="#usage">Usage</a> ·
-  <a href="#whats-inside">What's inside</a>
+  <a href="#whats-included">What's included</a>
 </p>
 
 </div>
 
 ---
 
-Ask Claude for "a better README" or "a README with badges and a banner", and this skill sets the structure, the badges, the alerts, and the banner, then checks the result.
+Ask Claude for "a better README" or "a README with badges and a banner". The skill asks a few questions (each has a default, so you can skip them), writes the README, sets up the repository around it, and checks the result.
 
 ## What it does
 
-- **Structure**: language switch, banner, tagline, badges, overview, features, quick start, tools, configuration, safety, development, roadmap, license, in that order.
-- **Banner**: a rounded wide image with the project name in large white text, made from a real render or screenshot of the project. `scripts/make-banner.py` does the darkening, rounding, and lettering.
-- **Badges**: shields.io `flat-square`, one color and one logo per badge. Only links that exist.
+- **Asks first**: language, banner, how to treat an existing README, how far to tidy the repository, and how to publish. Every question has a default, and answers already in your request are not asked again.
+- **Structure**: language switch, banner, tagline, badges, overview, features, quick start, tools, configuration, safety, roadmap, license, in that order. The README is for the people who use the software, not for the people who build or release it.
+- **Banner**: a rounded wide image with the project name in large white text, made from a real render or screenshot of the project. Skipped when it would look generic.
+- **Badges**: shields.io `flat-square`, one color and one logo per badge. Only links that exist, and only for things that are already published.
 - **Alerts**: `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`, used where they mean something, with no emoji.
 - **English and Japanese**: both versions share one structure. Japanese is proofread with the `yomiyasu` skill.
+- **Repository tidy-up**: adds what GitHub shows as tabs and templates (License, Security, Contributing, issue templates, release notes), and fills in the About description and topics.
 - **Facts first**: tool names, limits, and settings are checked against the code. What was not tried on a real setup is marked as unverified.
+- **Checks**: `scripts/audit-repo.py` finds leftover placeholders, dead badges and links, mismatched English and Japanese sections, and missing files.
 
 ## Install
 
@@ -47,7 +50,7 @@ Put the folder where Claude Code looks for skills.
 git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-skill
 ```
 
-The banner script needs [uv](https://docs.astral.sh/uv/) and Pillow, which `uv run` fetches on demand.
+The scripts need [uv](https://docs.astral.sh/uv/). The banner script also needs Pillow, which `uv run` fetches on demand. The repository tidy-up uses the [GitHub CLI](https://cli.github.com/) (`gh`).
 
 > [!NOTE]
 > The skill refers to the `yomiyasu` skill for Japanese proofreading. It still works without it, but the Japanese text is not proofread.
@@ -58,9 +61,16 @@ Ask in plain words. Examples:
 
 - "Write a README for this repository."
 - "Make the README look better, with badges and a banner."
-- "Rename done. Fix the URLs in the README."
+- "Set up the repository properly: license, security policy, issue templates."
+- "I renamed the repository. Fix the URLs in the README."
 
-To make only the banner:
+To check a repository on its own:
+
+```sh
+python3 ~/.claude/skills/readme-skill/scripts/audit-repo.py path/to/repo
+```
+
+It lists what to fix and what to consider, and changes nothing. To make only the banner:
 
 ```sh
 uv run --with pillow python scripts/make-banner.py "Project Name" docs/images/hero.png docs/images/banner.png
@@ -68,16 +78,17 @@ uv run --with pillow python scripts/make-banner.py "Project Name" docs/images/he
 
 The source image defaults to `docs/images/hero.png`, and the output to `docs/images/banner.png`, relative to the directory you run it in.
 
-## What's inside
+## What's included
 
 | Path | Purpose |
 |---|---|
-| `SKILL.md` | The instructions Claude follows: steps, structure, banner, badges, alerts, rules. |
+| `SKILL.md` | The instructions Claude follows: questions, steps, structure, banner, badges, alerts, repository tidy-up, rules. |
 | `templates/README.template.md` | A starting README with the centered header, badge row, alerts, and collapsible table. |
+| `templates/quickstart-by-language.md` | Install and run commands and badges for Node, Python, Rust, Go, Docker, Gradle, and web apps. |
+| `templates/github/` | Templates for `SECURITY.md`, `CONTRIBUTING.md`, issue forms, and release notes. |
 | `scripts/make-banner.py` | Makes the rounded banner with the project name. |
-
-> [!IMPORTANT]
-> Keep the English and Japanese READMEs in the same structure. Add a section to one, and add it to the other.
+| `scripts/audit-repo.py` | Checks the README, links, files, and About settings. |
+| `examples/sample-readme/` | A sample README produced with the skill. |
 
 ## License
 
