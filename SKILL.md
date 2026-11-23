@@ -1,6 +1,6 @@
 ---
 name: readme-skill
-description: GitHub リポジトリの README を、有名リポジトリのような見た目（中央寄せの言語切替とタイトル、色分けしたバッジ、Alert、折りたたみの表、英日の2言語）に作る・作り直すスキル。「READMEを作って」「READMEを良くして」「READMEをかっこよく」「バッジを付けて」と頼まれたときに使う。バナーは、見栄えよく作れるときと、指定があるときだけ付ける。
+description: GitHub リポジトリの README を、有名リポジトリのような見た目（中央寄せの言語切替とタイトル、色分けしたバッジ、Alert、折りたたみの表、英日の2言語）に作る・作り直すスキル。「READMEを作って」「READMEを良くして」「READMEをかっこよく」「バッジを付けて」と頼まれたときに使う。バナーは、見栄えよく作れるときと、指定があるときだけ付ける。README と一緒に、LICENSE・SECURITY・CONTRIBUTING・About・Issue テンプレートなど、GitHub の画面で見えるリポジトリの整備も行う。
 ---
 
 # README Creator SKILL
@@ -14,7 +14,8 @@ README を、見た目と中身の両方で整えます。READMEは、そのソ�
 3. **バナーを作る（任意）**: 暗い画面イメージや罫線の図柄などの元画像に大きなタイトルを重ねて、見栄えよく作れるときは付ける。ユーザーに指定があるときも付ける。コマンドやコードの文字を並べただけの画像（ターミナル画面の画像化、コード断片の背景）、文字だけ、単色の板になるときは付けない。迷うときも付けない。下の「バナー」に従う。
 4. **README を書く**: `templates/README.template.md` を元にする。英語版を `README.md`、日本語版を `README.ja.md` に置き、構成をそろえる。
 5. **推敲する**: 日本語は skill `yomiyasu` で推敲する。英語は文法と、削れる語を点検する。
-6. **確かめる**: バッジの URL（バナーがある場合はバナーの URL も）が 200 を返すこと、リンク切れがないことを確認する。GitHub 上の表示を見られないときは、見ていないと報告する。
+6. **リポジトリを整える**: 下の「リポジトリの整備」で、足りないファイルと About の設定を調べ、足す。
+7. **確かめる**: バッジの URL（バナーがある場合はバナーの URL も）が 200 を返すこと、リンク切れがないことを確認する。GitHub 上の表示を見られないときは、見ていないと報告する。
 
 ## 構成
 
@@ -76,6 +77,45 @@ GitHub の Alert 記法で、意味のある所にだけ色を付ける。
 | `> [!CAUTION]` | データの消失など、取り返しのつかないこと |
 
 絵文字は使わない。Alert を多用せず、1節に1〜2個までにする。
+
+## リポジトリの整備
+
+README を作る・作り直すときは、README だけで終わらせず、GitHub の画面に出るものを見直す。README の横にタブとして出るもの（Code of conduct・Contributing・License・Security）は、ファイルを置けば自動で出る。足りなければ積極的に足す。ただし README の中には、これらの手順や本文を書かない（「守ること」のとおり、README は利用者向けだけにする）。
+
+まず今の状態を調べる。
+
+```sh
+gh repo view --json description,homepageUrl,repositoryTopics,licenseInfo,hasIssuesEnabled,hasDiscussionsEnabled
+ls LICENSE* SECURITY* CONTRIBUTING* CODE_OF_CONDUCT* CITATION* .github 2>/dev/null
+```
+
+| 項目 | 置き場所 | 方針 |
+|---|---|---|
+| ライセンス | `LICENSE`（License タブ） | 無ければ必ず足す。リポジトリの持ち主の自作なら、既定は MIT（著者は持ち主、年は初公開の年）。他人のコードを含む、または持ち主が決めていないときは、足す前にライセンスの種類を確認する。README 末尾の「ライセンス」章もそろえる |
+| セキュリティ | `SECURITY.md`（Security タブ） | 配布物・ネットワーク通信・ファイル取得を扱うなら足す。脆弱性の報告先は、公開で書いてよい連絡先か GitHub の Private vulnerability reporting にする。対応する版も書く |
+| コントリビュート | `CONTRIBUTING.md`（Contributing タブ） | 外から Issue や PR を受けるなら足す。短く書く（Issue の出し方、PR の前に確かめること、ビルドとテストの方法）。ビルド手順などの開発者向けの内容は、README ではなくここに置く |
+| 行動規範 | `CODE_OF_CONDUCT.md`（Code of conduct タブ） | コミュニティを作りたい公開リポジトリだけ。Contributor Covenant を使い、連絡先は公開してよいものにする。小さな個人ツールでは足さない |
+| Issue テンプレート | `.github/ISSUE_TEMPLATE/bug_report.yml`・`feature_request.yml`・`config.yml` | Issue を受けるなら足す。バグ報告には版・環境・再現手順の欄を設ける。質問の誘導先があれば `config.yml` に書く |
+| PR テンプレート | `.github/PULL_REQUEST_TEMPLATE.md` | PR を受けるなら短く足す |
+| リリースノートの分類 | `.github/release.yml` | リリースを切るリポジトリなら足す（機能・修正などの分類） |
+| 引用 | `CITATION.cff`（Cite this repository） | 研究や論文で使われうるものだけ |
+| スポンサー | `.github/FUNDING.yml` | 持ち主が支援の窓口を持っているときだけ。持っていないものは置かない |
+| 依存の更新 | `.github/dependabot.yml` | 依存を持つプロジェクトなら足す |
+| コードの持ち主 | `.github/CODEOWNERS` | 複数人で管理するときだけ |
+
+About（リポジトリの右上の説明）も設定する。README と矛盾しない短い説明、ホームページ、topics を入れる。
+
+```sh
+gh repo edit --description "<1 文の説明>" --homepage "<URL>" --add-topic <topic1> --add-topic <topic2>
+```
+
+- 説明は、README のキャッチコピーと同じ内容を、英語 1 文にする。
+- topics は 5〜10 個。対象（minecraft・paper-plugin など）、言語、種類（cli・library など）を入れる。
+- 公開先（Modrinth・npm・Releases など）があれば、`--homepage` に入れる。
+- Discussions は、質問を受けたいときだけ `gh repo edit --enable-discussions` で有効にする。
+- ソーシャルプレビュー画像は GitHub の画面（Settings）からしか設定できないので、バナーを使うときは、設定が必要だと利用者に伝える。
+
+置くファイルと設定は、事実と合わせる。連絡先、対応版、ライセンスの名義、URL を、リポジトリの実際の内容と照合する。持っていない連絡先や、使っていない機能は書かない。ファイルを足したら、コミット（AI の名前は入れない）して push する。README の中に、足したファイルへのリンクを必要以上に並べない。
 
 ## 守ること
 
