@@ -70,10 +70,6 @@ cd REPO
 > [!NOTE]
 > What has not been verified.
 
-## Development
-
-…
-
 ## Roadmap
 
 - …
