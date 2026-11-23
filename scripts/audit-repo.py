@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """リポジトリの整備状況を調べる。使い方: python3 audit-repo.py [リポジトリのパス]
 
-README の置き換え忘れ、バッジ・リンク、英日の構成、LICENSE などのファイル、About の設定を点検し、
+README の置き換え忘れ、バッジ・リンク、言語版の構成、LICENSE などのファイル、About の設定を点検し、
 足りないものを一覧にする。変更はしない。終了コードは、問題があれば 1。
 """
 import json, os, re, subprocess, sys, urllib.request, urllib.error
@@ -29,7 +29,8 @@ for opt in ("CODE_OF_CONDUCT.md", ".github/release.yml"):
         note(f"{opt} がありません（必要なときだけ足す）")
 
 # 2. README と置き換え忘れ
-readmes = [f for f in ("README.md", "README.ja.md") if os.path.exists(f)]
+import glob
+readmes = [f for f in ["README.md"] + sorted(glob.glob("README.*.md")) if os.path.exists(f)]
 if not readmes:
     bad("README.md がありません")
 ph = re.compile(r"OWNER|\bREPO\b|DISPLAY NAME|LATEST_MINOR|BUILD_AND_TEST|ONE-LINE TAGLINE|TODO|FIXME")
@@ -41,13 +42,13 @@ for f in targets:
         if ph.search(line):
             bad(f"{f}:{i} 置き換え忘れの疑い: {line.strip()[:70]}")
 
-# 3. 英日の構成
+# 3. 言語版の構成
 def heads(f):
     return [l for l in open(f, encoding="utf-8") if re.match(r"#{2,3} ", l)]
-if len(readmes) == 2:
-    a, b = heads(readmes[0]), heads(readmes[1])
-    if len(a) != len(b):
-        bad(f"章の数が英日で違います（{readmes[0]}: {len(a)}、{readmes[1]}: {len(b)}）")
+if len(readmes) >= 2:
+    counts = {f: len(heads(f)) for f in readmes}
+    if len(set(counts.values())) > 1:
+        bad("章の数が言語版で違います（" + "、".join(f"{f}: {n}" for f, n in counts.items()) + "）")
 
 # 4. リンクとバッジ
 def status(url):

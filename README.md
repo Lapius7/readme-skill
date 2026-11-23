@@ -37,10 +37,10 @@ Ask Claude for "a better README" or "a README with badges and a banner". The ski
 - **Banner**: a rounded wide image with the project name in large white text, made from a real render or screenshot of the project. Skipped when it would look generic.
 - **Badges**: shields.io `flat-square`, one color and one logo per badge. Only links that exist, and only for things that are already published.
 - **Alerts**: `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`, used where they mean something, with no emoji.
-- **English and Japanese**: both versions share one structure. Japanese is proofread with the `yomiyasu` skill.
+- **Any languages you choose**: English and Japanese by default. Name other languages and it writes `README.<language code>.md` for each, with the same structure and a language switch at the top. Japanese is proofread with [Tsuzuri](https://github.com/MaryCache/tsuzuri) when it is available, and with `yomiyasu` when it is not.
 - **Repository tidy-up**: adds what GitHub shows as tabs and templates (License, Security, Contributing, issue templates, release notes), and fills in the About description and topics.
 - **Facts first**: tool names, limits, and settings are checked against the code. What was not tried on a real setup is marked as unverified.
-- **Checks**: `scripts/audit-repo.py` finds leftover placeholders, dead badges and links, mismatched English and Japanese sections, and missing files.
+- **Checks**: `scripts/audit-repo.py` finds leftover placeholders, dead badges and links, sections that differ between language versions, and missing files.
 
 ## Install
 
@@ -53,7 +53,7 @@ git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-skill
 The scripts need [uv](https://docs.astral.sh/uv/). The banner script also needs Pillow, which `uv run` fetches on demand. The repository tidy-up uses the [GitHub CLI](https://cli.github.com/) (`gh`).
 
 > [!NOTE]
-> The skill refers to the `yomiyasu` skill for Japanese proofreading. It still works without it, but the Japanese text is not proofread.
+> For Japanese proofreading the skill uses [Tsuzuri](https://github.com/MaryCache/tsuzuri) first and `yomiyasu` second. It still works with neither, but the Japanese text is then not proofread.
 
 ## Usage
 

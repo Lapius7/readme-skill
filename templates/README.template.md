@@ -5,6 +5,7 @@
   <img src="docs/images/banner.png" alt="DISPLAY NAME" width="100%">
 </p>
 
+<!-- 言語切替: 作った版の言語名をすべて並べる。現在の版は太字、ほかはリンク -->
 <p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
 <h1 align="center">DISPLAY NAME</h1>

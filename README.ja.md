@@ -37,10 +37,10 @@ Claude に「READMEを良くして」「バッジとバナーを付けて」と�
 - **バナー**: プロジェクトの実物のレンダリングやスクリーンショットから、角丸の横長画像に大きな白字でプロジェクト名を重ねます。ありふれた見た目になるときは付けません。
 - **バッジ**: shields.io の `flat-square` で、バッジごとに色とロゴを付けます。リンク先が実在するものと、公開済みのものだけにします。
 - **Alert**: `NOTE`、`TIP`、`IMPORTANT`、`WARNING`、`CAUTION` を、意味のある所にだけ使います。絵文字は使いません。
-- **英日の2言語**: 2つの版を同じ構成にします。日本語は `yomiyasu` スキルで推敲します。
+- **言語は指定できる**: 既定は英語と日本語です。ほかの言語を指定すると、言語ごとに `README.<言語コード>.md` を作り、同じ構成にして、先頭に言語切替を置きます。日本語は、[Tsuzuri](https://github.com/MaryCache/tsuzuri) が使えるときは Tsuzuri で、使えないときは `yomiyasu` スキルで推敲します。
 - **リポジトリの整備**: GitHub がタブやテンプレートとして出すもの（License、Security、Contributing、Issue テンプレート、リリースノート）を足し、About の説明と topics を設定します。
 - **事実を優先**: ツール名、上限値、設定名は、コードと照合します。実機で試していないことは、未検証と書きます。
-- **点検**: `scripts/audit-repo.py` が、置き換え忘れ、切れたバッジとリンク、英日で食い違う章、足りないファイルを調べます。
+- **点検**: `scripts/audit-repo.py` が、置き換え忘れ、切れたバッジとリンク、言語版どうしで食い違う章、足りないファイルを調べます。
 
 ## インストール
 
@@ -53,7 +53,7 @@ git clone https://github.com/Lapius7/readme-skill ~/.claude/skills/readme-skill
 スクリプトには [uv](https://docs.astral.sh/uv/) が必要です。バナーのスクリプトは Pillow も使い、`uv run` が必要なときに取得します。リポジトリの整備には [GitHub CLI](https://cli.github.com/)（`gh`）を使います。
 
 > [!NOTE]
-> 日本語の推敲では `yomiyasu` スキルを参照します。なくても動きますが、日本語の推敲は行われません。
+> 日本語の推敲には、[Tsuzuri](https://github.com/MaryCache/tsuzuri) を優先し、なければ `yomiyasu` スキルを使います。どちらもなくても動きますが、その場合は日本語の推敲が行われません。
 
 ## 使い方
 
