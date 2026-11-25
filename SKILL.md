@@ -113,6 +113,7 @@ ls LICENSE* SECURITY* CONTRIBUTING* CODE_OF_CONDUCT* CITATION* .github 2>/dev/nu
 | セキュリティ | `SECURITY.md`（Security タブ） | 配布物・ネットワーク通信・ファイル取得を扱うなら足す。脆弱性の報告先は、公開で書いてよい連絡先か GitHub の Private vulnerability reporting にする。対応する版も書く |
 | コントリビュート | `CONTRIBUTING.md`（Contributing タブ） | 外から Issue や PR を受けるなら足す。短く書く（Issue の出し方、PR の前に確かめること、ビルドとテストの方法）。ビルド手順などの開発者向けの内容は、README ではなくここに置く |
 | 行動規範 | `CODE_OF_CONDUCT.md`（Code of conduct タブ） | コミュニティを作りたい公開リポジトリだけ。Contributor Covenant を使い、連絡先は公開してよいものにする。小さな個人ツールでは足さない |
+| サポート | `SUPPORT.md`（新規 Issue 画面と Support への案内） | 質問の窓口（Discussions、Discord、メールなど）があるときだけ。無ければ足さない |
 | Issue テンプレート | `.github/ISSUE_TEMPLATE/bug_report.yml`・`feature_request.yml`・`config.yml` | Issue を受けるなら足す。バグ報告には版・環境・再現手順の欄を設ける。質問の誘導先があれば `config.yml` に書く |
 | PR テンプレート | `.github/PULL_REQUEST_TEMPLATE.md` | PR を受けるなら短く足す |
 | リリースノートの分類 | `.github/release.yml` | リリースを切るリポジトリなら足す（機能・修正などの分類） |
